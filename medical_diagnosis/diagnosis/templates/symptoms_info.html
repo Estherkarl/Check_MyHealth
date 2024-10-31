@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Diseases and Symptoms</title>
+    {% load static %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            background-image: url("{% static 'images/background.png' %}"); 
+            background-size: cover;
+            background-position: center;
+        }
+        h1 {
+            color: #ffffff;
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 15px;
+        }
+        .disease-name {
+            font-weight: bold;
+        }
+        .nav-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .nav-links a {
+            display: inline-block;
+            margin: 0 10px;
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #e9ecef;
+        }
+        .nav-links a:hover {
+            background-color: #d6d8db;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>All Diseases and Their Symptoms</h1>
+        <ul>
+            {% for disease, symptoms in rules.items %}
+                <li>
+                    <span class="disease-name">{{ disease|title }}</span>: {{ symptoms|join:", " }}
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="nav-links">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'diagnose' %}">Diagnose</a>
+            <a href="{% url 'symptoms_info' %}">Symptoms List</a>
+        </div>
+    </div>
+</body>
+</html>

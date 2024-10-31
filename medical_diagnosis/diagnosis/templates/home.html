@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    {% load static %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("{% static 'images/diagnose.jpeg' %}");
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            background-color: rgba(0, 123, 255, 0.7); /* Semi-transparent background */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 5px solid #0056b3;
+            margin: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for container */
+            border-radius: 10px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            display: inline;
+            margin: 0 15px;
+        }
+        a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #007bff;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        a:hover {
+            background-color: #0056b3;
+            color: #eaeaea;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 123, 255, 0.8); /* Semi-transparent footer background */
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Medical Diagnosis System</h1>
+        <ul>
+            <li><a href="{% url 'symptoms_info' %}">Symptoms Information</a></li>
+            <li><a href="{% url 'diagnose' %}">Diagnose</a></li>
+        </ul>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 Medical Diagnosis System. All rights reserved.</p>
+    </div>
+</body>
+</html>

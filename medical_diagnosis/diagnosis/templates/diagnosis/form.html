@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medical Diagnosis</title>
+    {% load static %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e9ecef;
+            background-image: url("{% static 'images/form.avif' %}");
+            background-size: cover;
+            background-position: center;
+        }
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for header */
+        }
+        h1 {
+            color: #ff5733; /* Change to a color that is visible, e.g., a bright orange */
+            margin-top: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background for container */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            background-image:  url("{% static 'images/diagnose.jpg' %}"); 
+            background-size: cover;
+            background-position: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007BFF;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .info-link {
+            margin-top: 20px;
+        }
+        .info-link p {
+            font-size: 16px;
+            margin: 0;
+        }
+        .info-link a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        .info-link a:hover {
+            text-decoration: underline;
+        }
+        .nav-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .nav-links a {
+            display: inline-block;
+            margin: 0 10px;
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #e9ecef;
+        }
+        .nav-links a:hover {
+            background-color: #d6d8db;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <!-- Removed the logo image -->
+    </div>
+    <div class="container">
+        <h1>Medical Diagnosis</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+        <div class="info-link">
+            <p><a href="{% url 'symptoms_info' %}">View All Diseases and Their Symptoms</a></p>
+        </div>
+        <div class="nav-links">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'diagnose' %}">Diagnose</a>
+            <a href="{% url 'symptoms_info' %}">Symptoms List</a>
+        </div>
+    </div>
+</body>
+</html>
